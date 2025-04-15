@@ -146,4 +146,10 @@ public List<Course> getCoursesForInstructor() {
 
     return courseService.getCoursesByInstructorId(authenticatedInstructor.getInstructorID());
 }
+
+@GetMapping("/public")
+public List<Course> getPublicCourses() {
+    return courseService.getAllCourses(); // Return all courses without authentication
+}
+
 }

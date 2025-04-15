@@ -49,7 +49,7 @@ public class SecurityConfig {
             .and()
             .csrf().disable() // Disable CSRF for simplicity (optional)
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/users", "/api/instructors", "/api/users/login", "/api/instructors/login").permitAll()
+                .requestMatchers("/api/users", "/api/instructors", "/api/users/login", "/api/instructors/login","api/courses/public").permitAll()
                 .anyRequest().authenticated())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
